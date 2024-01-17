@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head> 
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
@@ -15,16 +15,18 @@
         />
         <p class="header">Log in to see more</p>
 
-        <form action="/login" method="post">
+        <form action="/register" method="post">
+          
+            <input type="text" placeholder="username" class="detail" name="username"/><br />
+            
+            <input type="email" placeholder="Email" class="detail" name="email"/><br />
+            <input type="text" placeholder="Full Name" class="detail" name="fullname"/>
+            <input type="password" placeholder="Password" class="detail" name="password"/>
 
-          <input type="email" placeholder="Email" class="detail" /><br />
-          <input type="password" placeholder="Password" class="detail" />
 
-          <h4>Forgot your password?</h4>
-
-          <button class="btn int">Log in</button>
-          <p class="or">OR</p>
-          <button class="btn fbk">
+            <button type="submit" class="btn int">Sign</button>
+            <p class="or">OR</p>
+            <button class="btn fbk">
             <i
               class="fab fa-facebook fa-lg"
               style="color: white; padding-right: 10px"
