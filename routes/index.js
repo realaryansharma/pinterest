@@ -5,6 +5,7 @@ const userModel = require("./users");
 const postModel = require("./posts");
 const passport = require("passport");
 const localStrategy = require("passport-local");
+
 passport.use(new localStrategy(userModel.authenticate()));
 
 /* GET home page. */
@@ -20,8 +21,8 @@ router.get("/login", function(req, res, next) {
   res.render("login");
 });
 
-router.get("/profile", isLoggedIn, function(req, res) {
-  res.send("profile");
+router.get('/profile', isLoggedIn, function(req, res) {
+  res.send('Welcome to the profile page');
 });
 
 router.post("/register", function(req, res) {
@@ -40,12 +41,16 @@ router.post("/register", function(req, res) {
 
 });
 
-// router.get('/login', passport.authenticate("local", {
-//   successRedirect: "/profile",
-//   failureRedirect: "/"
-// }), function(req, res) {
-   
-// });
+router.post('/login', passport.authenticate("local", {
+
+
+  successRedirect: "/profile",
+  failureRedirect: "/"
+}), function(req, res) {
+  console.log(req.body.email);
+  console.log(req.body.password);
+
+});
 
 router.get("/logout", function(req, res) {
   
@@ -57,12 +62,10 @@ router.get("/logout", function(req, res) {
 });
 
 function isLoggedIn(req, res, next) {
-
-  if(req.isAuthenticated()) {
+  if (req.isAuthenticated()) {
     return next();
   }
-  res.redirect("/");
-
+  res.redirect("/login"); // Redirect to the login page if not authenticated
 }
 // router.get("/createuser", async function(req, res) {
   
