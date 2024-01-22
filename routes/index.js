@@ -22,7 +22,14 @@ router.get("/login", function(req, res, next) {
 });
 
 router.get('/profile', isLoggedIn, function(req, res) {
-  res.send('Welcome to the profile page');
+  res.render("profile", {
+    username: "",
+    fullname: ""
+  });
+});
+
+router.get("/feed", function(req, res) {
+  res.render("feed");
 });
 
 router.post("/register", function(req, res) {
@@ -42,8 +49,6 @@ router.post("/register", function(req, res) {
 });
 
 router.post('/login', passport.authenticate("local", {
-
-
   successRedirect: "/profile",
   failureRedirect: "/"
 }), function(req, res) {

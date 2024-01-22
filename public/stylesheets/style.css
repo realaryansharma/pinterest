@@ -4,25 +4,21 @@
   box-sizing: border-box;
 }
 body {
-  background-color: gray;
   font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
 .container {
   background-color: white;
   width: 480px;
-  height: 650px;
-  position: absolute;
-  margin: auto;
-  top: 20%;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  height: auto;
+  padding: 1rem 0 1rem 0;
+  margin: 1rem auto;
   border-radius: 10px;
-  box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.5);
+  box-shadow:   0px 5px 20px 7px rgb(66 65 63 / 43%);
+
 }
 .content {
-  width: 56%;
-  position: absolute;
+  width: 60%;
   margin: auto;
   left: 0;
   right: 0;
@@ -34,12 +30,11 @@ body {
 .img1{
   width: 70px;
   position: relative;
-  top: 20px;
 }
 .header {
   font-size: 32px;
   font-weight: 700;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 10px;
   line-height: 46px;
 }
@@ -151,3 +146,4 @@ hr {
   background-color: rgb(241, 236, 236);
   border-radius: 20px;
 }
+
