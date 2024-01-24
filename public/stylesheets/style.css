@@ -147,3 +147,11 @@ hr {
   border-radius: 20px;
 }
 
+
+
+/* LOG IN */
+
+.error {
+  color: #df0812;
+  transition: 1s;
+}

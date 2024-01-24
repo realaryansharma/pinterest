@@ -10,7 +10,7 @@ passport.use(new localStrategy(userModel.authenticate()));
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render("login");
 });
 
 router.get('/signup', function(req, res, next) {
@@ -18,13 +18,20 @@ router.get('/signup', function(req, res, next) {
 });
 
 router.get("/login", function(req, res, next) {
-  res.render("login");
+  res.render("login", {error: req.flash("error")});
 });
 
-router.get('/profile', isLoggedIn, function(req, res) {
+router.get('/profile', isLoggedIn, async function(req, res) {
+
+  const user = await userModel.findOne({
+    username: req.session.passport.user 
+  });
+
+  console.log(user.username);
+
   res.render("profile", {
-    username: "",
-    fullname: ""
+    username: user.username,
+    email: user.email
   });
 });
 
@@ -50,7 +57,8 @@ router.post("/register", function(req, res) {
 
 router.post('/login', passport.authenticate("local", {
   successRedirect: "/profile",
-  failureRedirect: "/"
+  failureRedirect: "/login",
+  failureFlash: true
 }), function(req, res) {
   console.log(req.body.email);
   console.log(req.body.password);
@@ -61,7 +69,7 @@ router.get("/logout", function(req, res) {
   
   req.logout(function(err) {
     if (err) { return next(err); }
-    res.redirect('/');
+    res.redirect('/login');
   });
 
 });
