@@ -7,3 +7,5 @@ After learn what matters, I'll be using those skills to create a replica of Pint
 /feed - all images
 /click - onclicking the images will open
 /board - will show complete board 
+
+I have used plm, flash messages, multer(used to ulpad stuff)

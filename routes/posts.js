@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
-  text: {
+  imageText: {
     type: String,
     required: true
+  },
+  image: {
+    type: String
   },
   createdAt: {
     type: Date,
