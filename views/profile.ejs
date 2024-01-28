@@ -15,15 +15,17 @@
             <p><%=user.email%></p>
             <p>@bio</p>
             <p>@skills</p>
-            <button>Log Out</button>
+            <button id="logoutButton">Log Out</button>
             <button onclick="openUploadPopup()">Upload</button>
             <div class="popup" id="showPopup">
                 <form action="/upload" method="post" enctype="multipart/form-data" />
-                    <input type="file" name="file" />
+                    <input type="file" name="file" /><br>
                     <label>Enter the post text</label>
                     <textarea id="w3review" name="imagecaption" rows="4" cols="50"></textarea>
-                    <button type="submit">Upload</button>
-                    <button type="button" onclick="closeUploadPopup()">Close</button>
+                    <div>
+                        <button type="submit">Upload</button>
+                        <button type="button" onclick="closeUploadPopup()">Close</button>
+                    </div>                
                 </form>
             </div>
             
